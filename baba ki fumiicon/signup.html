@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Fumicon</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff8e6, #f7f7f7);
+      min-height: 100vh;
+    }
+    .auth-card {
+      max-width: 500px;
+      width: 100%;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    }
+    .signup-btn {
+      width: 100%;
+      display: inline-block;
+      background: #f4b400;
+      color: #111;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .signup-btn:hover {
+      background: #f1a900;
+      color: #111;
+      transform: translateY(-1px);
+    }
+    .extra-link {
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center">
+  <div class="auth-card p-4 p-md-5">
+    <h2 class="fw-bold mb-2">Create Account</h2>
+    <p class="text-muted mb-4">Join Fumicon today</p>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" placeholder="Enter full name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="Enter email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone</label>
+        <input type="text" class="form-control" placeholder="Enter phone number">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" placeholder="Create password">
+      </div>
+      <a href="index.html" class="signup-btn">Sign Up</a>
+      <p class="text-center mt-3 mb-0">Already have an account? <a href="login.html" class="extra-link">Login</a></p>
+    </form>
+  </div>
+</body>
+</html>

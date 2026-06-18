@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Fumicon</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #eef3ff, #f8f9fc);
+      min-height: 100vh;
+    }
+    .auth-card {
+      max-width: 450px;
+      width: 100%;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    }
+    .login-btn {
+      display: inline-block;
+      width: 100%;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+    .login-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+    .extra-link {
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center">
+  <div class="auth-card p-4 p-md-5">
+    <h2 class="fw-bold mb-2">Welcome Back</h2>
+    <p class="text-muted mb-4">Login to your account</p>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="Enter email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" placeholder="Enter password">
+      </div>
+      <div class="d-flex justify-content-between mb-3">
+        <div>
+          <input type="checkbox" id="remember">
+          <label for="remember" class="ms-1">Remember me</label>
+        </div>
+        <a href="#" class="text-decoration-none extra-link">Forgot password?</a>
+      </div>
+      <a href="dashboard.html" class="login-btn">Login</a>
+      <p class="text-center mt-3 mb-0">Don't have an account? <a href="signup.html" class="extra-link">Sign Up</a></p>
+    </form>
+  </div>
+</body>
+</html>
