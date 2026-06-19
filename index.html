@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARIQ FUMICON</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #111;
+            color: white;
+            border-radius: 12px;
+            margin: 10px;
+            position: sticky;
+            top: 10px;
+            z-index: 999;
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+        }
+
+        #navbar nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        #navbar nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-section {
+            padding: 60px 20px 40px;
+        }
+
+        .hero-box {
+            background: linear-gradient(90deg, #0f172a, #1e293b);
+            color: #fff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content {
+            padding: 60px 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            max-width: 600px;
+        }
+
+        .hero-btns .btn {
+            border-radius: 999px;
+            padding: 12px 20px;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            object-fit: cover;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 14px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .stat-box p {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .about-section,
+        .service-section,
+        .product-section,
+        .cta-section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: #fff;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .about-card ul {
+            padding-left: 18px;
+            color: #4b5563;
+        }
+
+        .about-card li {
+            margin-bottom: 8px;
+        }
+
+        .service-card-modern {
+            background: #fff;
+            border-radius: 22px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+            transition: 0.3s ease;
+        }
+
+        .service-card-modern:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 16px;
+            background: #111;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .product-section {
+            background: #eef3ff;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            position: relative;
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ff4d4f;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .product-body {
+            padding: 16px;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .product-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+            min-height: 42px;
+        }
+
+        .rating {
+            color: #f4b400;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #111;
+        }
+
+        .stock {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 999px;
+        }
+
+        .stock.in-stock {
+            background: #e8f7ed;
+            color: #198754;
+        }
+
+        .stock.out-stock {
+            background: #fdeaea;
+            color: #dc3545;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-add-cart,
+        .btn-buy-later {
+            flex: 1;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .btn-add-cart {
+            background: #111;
+            color: #fff;
+        }
+
+        .btn-buy-later {
+            background: #f7f7f7;
+            color: #111;
+            border: 1px solid #ddd;
+        }
+
+        .carousel-section {
+            padding: 20px 20px 0;
+        }
+
+        .carousel-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            min-height: 420px;
+        }
+
+        .carousel-card img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            filter: brightness(0.65);
+        }
+
+        .carousel-caption {
+            bottom: 15%;
+            left: 8%;
+            right: 8%;
+            text-align: left;
+        }
+
+        .carousel-caption h2 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .carousel-caption p {
+            font-size: 1rem;
+            max-width: 550px;
+        }
+
+        .auth-actions {
+            margin-left: auto;
+        }
+
+        .auth-btn {
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 90px;
+        }
+
+        .login-btn:hover {
+            background: #fff;
+            color: #111;
+        }
+
+        .signup-btn:hover {
+            background: #f8c400;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg sticky-top" style="background:#111; margin:10px; border-radius:18px;">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-white fw-bold" href="index.html">FUMICON</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex align-items-center gap-2 ms-auto me-2 auth-actions">
+                <a href="login.html" class="btn btn-outline-light btn-sm px-3 py-2 rounded-pill auth-btn login-btn" aria-label="Go to login page">Login</a>
+                <a href="signup.html" class="btn btn-warning btn-sm px-3 py-2 rounded-pill auth-btn signup-btn" aria-label="Go to sign up page">Sign Up</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="packages.html">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="carousel-section">
+            <div class="container">
+                <div id="homeCarousel" class="carousel slide rounded-4 overflow-hidden shadow" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="carousel-card">
+                                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80" alt="Fumigation service 1">
+                                <div class="carousel-caption">
+                                    <h2>Trusted Pest Control</h2>
+                                    <p>Safe, effective, and affordable fumigation services for homes and businesses.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-card">
+                                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=80" alt="Fumigation service 2">
+                                <div class="carousel-caption">
+                                    <h2>Hygiene & Sanitization</h2>
+                                    <p>Professional treatment designed to keep every space clean and protected.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-card">
+                                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80" alt="Fumigation service 3">
+                                <div class="carousel-caption">
+                                    <h2>Fast Response Team</h2>
+                                    <p>Book today and get reliable support from experienced fumigation experts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-box row g-0 align-items-center">
+                    <div class="col-lg-7 hero-content">
+                        <h1>Professional Fumigation Services for Every Space</h1>
+                        <p>We provide reliable pest control, sanitation, and fumigation solutions for homes, offices, hospitals, warehouses, and more.</p>
+                        <div class="hero-btns mt-4">
+                            <a href="services.html" class="btn btn-warning me-2">Book Service</a>
+                            <a href="contact.html" class="btn btn-outline-light">Contact Us</a>
+                        </div>
+                        <div class="stats-row">
+                            <div class="stat-box">
+                                <h3>500+</h3>
+                                <p>Projects Done</p>
+                            </div>
+                            <div class="stat-box">
+                                <h3>98%</h3>
+                                <p>Client Satisfaction</p>
+                            </div>
+                            <div class="stat-box">
+                                <h3>24/7</h3>
+                                <p>Support</p>
+                            </div>
+                            <div class="stat-box">
+                                <h3>15+</h3>
+                                <p>Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <img class="hero-image" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Fumicon service hero image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="about-card row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80" alt="About fumicon" class="img-fluid rounded-4">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Why Choose Fumicon?</h2>
+                        <p class="text-muted">We combine advanced fumigation techniques with eco-safe methods to protect homes and businesses from pests and hygiene risks.</p>
+                        <ul>
+                            <li>Certified and trained technicians</li>
+                            <li>Safe and effective pest control methods</li>
+                            <li>Affordable pricing and custom packages</li>
+                            <li>Fast response for emergency service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-section" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>We offer tailored fumigation and sanitation solutions for every kind of space.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card-modern">
+                            <div class="service-icon"><i class="bi bi-house-door"></i></div>
+                            <h5>Home Fumigation</h5>
+                            <p>Safe protection for homes and apartments.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card-modern">
+                            <div class="service-icon"><i class="bi bi-building"></i></div>
+                            <h5>Office Protection</h5>
+                            <p>Clean and hygienic workspaces for businesses.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card-modern">
+                            <div class="service-icon"><i class="bi bi-shop"></i></div>
+                            <h5>Restaurant Sanitization</h5>
+                            <p>Food-safe sanitization and pest control.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card-modern">
+                            <div class="service-icon"><i class="bi bi-hospital"></i></div>
+                            <h5>Hospital Hygiene</h5>
+                            <p>Strict hygiene standards for healthcare spaces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Popular Service Packages</h2>
+                    <p>Choose the package that best fits your space and needs.</p>
+                </div>
+                <div class="product-grid">
+                <article class="product-card">
+                    <span class="discount-badge">20% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+                        alt="Home fumigation service">
+                    <div class="product-body">
+                        <h3 class="product-title">Home Fumigation</h3>
+                        <p class="product-desc">Complete home pest control and sanitization service.</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span class="text-muted">(4.8)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">25,000 PKR</span>
+                            <span class="stock in-stock">In Stock</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-add-cart"><i class="bi bi-cart3 me-1"></i>Add to Cart</button>
+                            <button class="btn btn-buy-later"><i class="bi bi-heart me-1"></i>Buy Later</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <span class="discount-badge">15% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80"
+                        alt="Office fumigation service">
+                    <div class="product-body">
+                        <h3 class="product-title">Office Fumigation</h3>
+                        <p class="product-desc">Safe and effective pest control for office spaces.</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <span class="text-muted">(4.5)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">25,000 PKR</span>
+                            <span class="stock in-stock">In Stock</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-add-cart"><i class="bi bi-cart3 me-1"></i>Add to Cart</button>
+                            <button class="btn btn-buy-later"><i class="bi bi-heart me-1"></i>Buy Later</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <span class="discount-badge">10% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80"
+                        alt="Kitchen fumigation service">
+                    <div class="product-body">
+                        <h3 class="product-title">Kitchen Sanitization</h3>
+                        <p class="product-desc">Deep cleaning and fumigation for kitchen areas.</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <span class="text-muted">(5.0)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">25,000 PKR</span>
+                            <span class="stock in-stock">In Stock</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-add-cart"><i class="bi bi-cart3 me-1"></i>Add to Cart</button>
+                            <button class="btn btn-buy-later"><i class="bi bi-heart me-1"></i>Buy Later</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <span class="discount-badge">25% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80"
+                        alt="Hospital fumigation service">
+                    <div class="product-body">
+                        <h3 class="product-title">Hospital Hygiene Service</h3>
+                        <p class="product-desc">Professional hygiene and fumigation for medical spaces.</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span class="text-muted">(4.7)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">25,000 PKR</span>
+                            <span class="stock out-stock">Out of Stock</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-add-cart"><i class="bi bi-cart3 me-1"></i>Add to Cart</button>
+                            <button class="btn btn-buy-later"><i class="bi bi-heart me-1"></i>Buy Later</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <span class="discount-badge">18% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
+                        alt="Restaurant fumigation service">
+                    <div class="product-body">
+                        <h3 class="product-title">Restaurant Sanitization</h3>
+                        <p class="product-desc">Hygiene treatment for restaurants and food areas.</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <span class="text-muted">(4.6)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">25,000 PKR</span>
+                            <span class="stock in-stock">In Stock</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-add-cart"><i class="bi bi-cart3 me-1"></i>Add to Cart</button>
+                            <button class="btn btn-buy-later"><i class="bi bi-heart me-1"></i>Buy Later</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <span class="discount-badge">22% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80"
+                        alt="Warehouse fumigation service">
+                    <div class="product-body">
+                        <h3 class="product-title">Warehouse Protection</h3>
+                        <p class="product-desc">Large area fumigation for commercial storage spaces.</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span class="text-muted">(4.9)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">25,000 PKR</span>
+                            <span class="stock in-stock">In Stock</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-add-cart"><i class="bi bi-cart3 me-1"></i>Add to Cart</button>
+                            <button class="btn btn-buy-later"><i class="bi bi-heart me-1"></i>Buy Later</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <span class="discount-badge">12% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+                        alt="Carpet fumigation service">
+                    <div class="product-body">
+                        <h3 class="product-title">Carpet & Sofa Care</h3>
+                        <p class="product-desc">Deep treatment for carpets, sofas, and fabric items.</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <span class="text-muted">(4.4)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price">25,000 PKR</span>
+                            <span class="stock in-stock">In Stock</span>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-add-cart"><i class="bi bi-cart3 me-1"></i>Add to Cart</button>
+                            <button class="btn btn-buy-later"><i class="bi bi-heart me-1"></i>Buy Later</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-section" id="contact">
+            <div class="container">
+                <div class="about-card text-center">
+                    <h2>Ready to Book a Service?</h2>
+                    <p class="text-muted">Get in touch today for fast, professional fumigation support.</p>
+                    <a href="contact.html" class="btn btn-dark">Contact Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Fumicon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
